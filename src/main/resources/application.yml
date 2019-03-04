@@ -1,0 +1,29 @@
+spring:
+  application.name: Payslip
+
+inputFile: /input.csv
+outputFile: output/output.csv
+
+
+taxrate:
+  rates:
+    - min: 0
+      max: 18200
+      baseTaxAmount: 0
+      percentage: 0
+    - min: 18201
+      max: 37000
+      baseTaxAmount: 0
+      percentage: 0.19
+    - min: 37001
+      max: 80000
+      baseTaxAmount: 3572
+      percentage: 0.325
+    - min: 80001
+      max: 180000
+      baseTaxAmount: 17547
+      percentage: 0.37
+    - min: 180001
+      max: 2147483647
+      baseTaxAmount: 54547
+      percentage: 0.45
