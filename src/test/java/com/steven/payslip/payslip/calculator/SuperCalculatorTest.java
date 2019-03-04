@@ -47,5 +47,10 @@ public class SuperCalculatorTest {
 	public void testCalculateWithNullSuperRate() {
 		superCalculator.calculate(new BigDecimal(20000), null);
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testCalculateWithOvertopSuperRate() {
+		superCalculator.calculate(new BigDecimal(20000), new BigDecimal(0.6));
+	}
 
 }

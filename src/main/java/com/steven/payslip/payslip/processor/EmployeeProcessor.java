@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
 
 import com.steven.payslip.payslip.model.DatePeriod;
 import com.steven.payslip.payslip.model.Employee;
-import com.steven.payslip.payslip.validator.NonNegativeValidator;
+import com.steven.payslip.payslip.validator.SuperValidator;
 
 @Component
 public class EmployeeProcessor {
 	
 	@Autowired
-	private NonNegativeValidator nonNegativeValidator;
+	private SuperValidator superValidator;
 	
 
 	public Employee parseEmployee(CSVRecord csvRecord) {
@@ -34,7 +34,7 @@ public class EmployeeProcessor {
 
 	public BigDecimal getSuperRate(String superRate) {
 		BigDecimal divideRate = new BigDecimal(superRate.trim().replace("%", "")).divide(BigDecimal.valueOf(100));
-		nonNegativeValidator.validate(divideRate);
+		superValidator.validate(divideRate);
 		return divideRate;
 	}
 
