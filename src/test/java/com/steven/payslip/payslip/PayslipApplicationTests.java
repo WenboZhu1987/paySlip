@@ -20,9 +20,11 @@ public class PayslipApplicationTests {
 	@Test
 	public void testRun() throws Exception {
 		payslipApplication.run();
-		File outputFile = new File("output.csv");
+		File outputFile = new File("output/output.csv");
 		String csvRecords = new String(Files.readAllBytes(outputFile.toPath()), "UTF8");
-		Assert.assertEquals(csvRecords, "David Rudd,01 March\t– 31 March,5004,922,4082,450\r\n"
-				+ "Ryan Chen,01 March\t– 31 March,10000,2696,7304,1000\r\n");
+		System.out.println(csvRecords);
+		
+		Assert.assertEquals(csvRecords, "David Rudd,01 March-31 March,5004,922,4082,450\r\n"
+				+ "Ryan Chen,01 March-31 March,10000,2696,7304,1000\r\n");
 	}
 }

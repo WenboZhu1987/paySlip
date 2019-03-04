@@ -24,9 +24,9 @@ public class PayslipGeneratorServiceTest {
 	@InjectMocks
 	private PayslipGeneratorService subject;
 
-	private String inputCSVFile = "/testInput.csv";
+	private String inputFile = "/testInput.csv";
 
-	private String outputCSVFile = "out.csv";
+	private String outputFile = "testOutput.csv";
 	
 	private Employee employee;
 	
@@ -42,8 +42,8 @@ public class PayslipGeneratorServiceTest {
 
 	@Test
 	public void testGeneratePayslip() {
-		ReflectionTestUtils.setField(subject, "inputFile", inputCSVFile);
-		ReflectionTestUtils.setField(subject, "outputFile", outputCSVFile);
+		ReflectionTestUtils.setField(subject, "inputFile", inputFile);
+		ReflectionTestUtils.setField(subject, "outputFile", outputFile);
 		Mockito.when(employeeProcessor.parseEmployee(Mockito.any())).thenReturn(employee);
 		Mockito.when(paySlipProcessor.parsePayslip(Mockito.any())).thenReturn(payslip);
 		subject.generatePayslip();
