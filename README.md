@@ -5,7 +5,7 @@ Prerequirement
 1. JAVA 8
 2. Maven
 
-uild & Run
+Build & Run
 
 mvn clean install
 
